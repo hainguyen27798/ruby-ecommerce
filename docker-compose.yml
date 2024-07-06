@@ -1,0 +1,22 @@
+name: ruby-ecommerce
+networks:
+    ruby_ecommerce_network:
+        driver: bridge
+services:
+    database:
+        container_name: ruby-database
+        image: mysql:8.0
+        restart: unless-stopped
+        environment:
+            - MYSQL_DATABASE=ruby-ecommerce
+            - MYSQL_ROOT_PASSWORD=ecommerce@123
+        ports:
+            - '3307:3306'
+        volumes:
+            - ruby_e_database:/var/lib/mysql
+            - ./.docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+        networks:
+            - ruby_ecommerce_network
+volumes:
+    ruby_e_database:
+        driver: local
