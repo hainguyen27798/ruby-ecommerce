@@ -5,20 +5,38 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+### Ruby version
 
-* System dependencies
+### System dependencies
 
-* Configuration
+### Configuration
 
-* Database creation
+### Database creation
 
-* Database initialization
+  Generate model:
+  ```shell
+  rails generate model <model_name> [...attrs] --skip-helper --skip-assets --skip-template-engine --skip-test-framework
+  ```
 
-* How to run the test suite
+  Generate controller:
+  ```shell
+  rails generate controller <controller_name> index show create update destroy --skip-helper --skip-assets --skip-template-engine --skip-test-framework
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Database initialization
+  
+  Init schemas:
+  ```shell
+  rake db:create
+  ```
+  
+  Run db migration:
+  ```shell
+  rake db:migration
+  ```
 
-* Deployment instructions
+### How to run the test suite
 
-* ...
+### Services (job queues, cache servers, search engines, etc.)
+
+### Deployment instructions
